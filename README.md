@@ -50,7 +50,7 @@ Dual thread:
 
 这是我用了好些年的测试工具，简单好用，分享给大家。
 
-2022/5/13 选择今天开源这个测试软件，也是因为在某平台上的测试数据显示了一些问题。
+2022/5/13 选择开源这个测试软件，也是因为在某平台上的测试数据显示了一些问题。
 为避免被认为是我的测试工具有问题，我直接放出源码。
 
 ## 安装
@@ -58,9 +58,13 @@ Dual thread:
 这是个perl程序，直接将`_cputest.pl`拷贝到服务器上执行即可。一般linux服务器上应该可以直接运行。
 如果有报错，可以安装一下perl及HiRes模块。
 
+	git clone git@github.com:skyshore2001/cputest.git
+	cd cputest
+	./_cputest.pl
+
 运行环境安装：
 
-Windows电脑可以下降安装Windows版本的Perl，或者很多开发者都安装过git，可以直接打开git-bash，在里面的仿Linux环境中运行（里面默认有Perl）。
+Windows电脑建议直接使用git自带的git-bash，右键打开git-bash在命令行里面执行即可（里面默认有Perl）。
 
 centos 7/8参考:
 
