@@ -1,7 +1,7 @@
-CFLAGS=
+CFLAGS=-std=c99
 LDFLAGS=-lpthread
 
 all: cputest
 
 cputest: cputest.c
-	cc cputest.c $(LDFLAGS) -o cputest
+	cc $(CFLAGS) cputest.c $(LDFLAGS) -o cputest
