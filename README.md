@@ -70,6 +70,9 @@ Dual thread:
 其原理是循环求n=1000的斐波那契数列值，每算1000次计1分，跑分值为1秒内的分值。
 这是典型的整数运行性能测试。
 
+本测试工具只做最简单的衡量。
+如果要综合评分，推荐使用sysbench，或自行编译的[coremark](https://github.com/eembc/coremark.git).
+
 ## 安装
 
 cputest-linux是预编译的binary程序，可直接运行在centos/ubuntu等Linux平台。如果无法运行，则需要自行执行`make`编译，生成cputest程序。
@@ -191,7 +194,7 @@ cputest也可以是预编译的cputest-linux等。
 ### 联想小新笔记本（AMD锐龙)
 
 联想小新笔记本AMD版本，AMD Ryzen 5 4600U (6核12线程)
-操作系统为Windows 10。cputest.pl使用git软件自带的git-bash来做的测试。cputest使用wsl中的ubuntu来测试
+操作系统为Windows 10。cputest.pl使用git软件自带的git-bash来做的测试。cputest使用Win10上的Linux子系统(wsl中的ubuntu)来测试。
 
 不插电源时(cpu 1.5G-3G左右)
 
