@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	int total = 0;
 
 	int thrCnt = 1;
-	int testTime = 10; // seconds
+	int testTime = 2; // seconds
 
 	if (argc > 1) {
 		sscanf(argv[1], "%d", &thrCnt);
