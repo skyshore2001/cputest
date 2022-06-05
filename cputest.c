@@ -7,6 +7,8 @@
 #define MAX_THR 1000
 typedef void *(*ThrFn) (void *);
 
+volatile int quitFlag = 0;
+
 void calc()
 {
 	int i, a=1, b=2, c;
@@ -26,12 +28,13 @@ void calc1()
 
 void doTask(int *subTotal)
 {
-	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 	while (1) {
 		calc1();
 		++ (*subTotal);
-		pthread_testcancel();
+		if (quitFlag)
+			break;
 	}
+	//pthread_exit((void*)0);
 }
 
 int main(int argc, char *argv[])
@@ -64,9 +67,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	sleep(testTime);
-	for (int i=0; i<thrCnt; ++i) {
-		pthread_cancel(thr[i]);
-	}
+	quitFlag = 1;
 	for (int i=0; i<thrCnt; ++i) {
 		pthread_join(thr[i], NULL);
 		if (thrCnt > 1)
