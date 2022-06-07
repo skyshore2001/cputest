@@ -4,7 +4,7 @@ It is a simple program that just do the Fibonacci sequence calculation which is 
 
 ## Installation
 
-`cputest-linux` is pre-compiled binary for some Linux like centos/ubuntu. If it fails to run, you can compile via `make` to create you own `cputest`. It requires gcc and pthread library.
+`linux/cputest-x64` is pre-compiled binary for some Linux like centos/ubuntu. If it fails to run, you can compile via `make` to create you own `cputest`. It requires gcc and pthread library.
 
 `_cputest.pl` is a Perl script, that just requires Perl environment and HiRes module.
 
@@ -75,7 +75,11 @@ Dual thread:
 
 ## 安装
 
-cputest-linux是预编译的binary程序，可直接运行在centos/ubuntu等Linux平台。如果无法运行，则需要自行执行`make`编译，生成cputest程序。
+`linux/cputest-x64`是预编译的binary程序，可直接运行在centos/ubuntu等Linux平台。
+armv8上的linux环境可以试试`linux/cputest-armv8`。
+如果是mipsel平台上的路由器，且是openwrt系统环境，可以试试`libc.so mips/cputest`。
+
+如果无法运行，则需要自行执行`make`编译，生成cputest程序。
 当然这需要有编译环境(gcc, pthread库)。
 
 如果不方便编译，也可以用Perl程序cputest.pl测试，一般Linux都会自带。
@@ -161,9 +165,9 @@ cputest也可以是预编译的cputest-linux等。
 ### 阿里云主机
 
 阿里云主机(2核8G) Intel(R) Xeon(R) CPU E5-2682 v4 @ 2.50GHz (2021/12/23)
-操作系统为CentOS7:
+操作系统为CentOS7: 
 
-	cputest
+	cputest (linux/cputest-x64)
 	1: 250
 	2: 496
 	4: 488
@@ -188,8 +192,21 @@ cputest也可以是预编译的cputest-linux等。
 入门级路由器(1核128M)  MediaTek MT7620 SoC (580MHz) / MediaTek MT7620A ver:2 eco:6
 操作系统为OpenWRT:
 
+	cputest (mips/cputest)
+	1: 28
+	2: 28
+
+	cputest.pl
 	1: 280s
 	2: 280s
+
+入门级路由器(2核4线程 128M)  MediaTek MT7621 (800MHz)
+操作系统为OpenWRT:
+
+	cputest (mips/cputest)
+	1: 43
+	2: 86
+	4: 72
 
 ### 联想小新笔记本（AMD锐龙)
 
@@ -198,7 +215,7 @@ cputest也可以是预编译的cputest-linux等。
 
 不插电源时(cpu 1.5G-3G左右)
 
-	cputest
+	cputest (linux/cputest-x64)
 	1: 273
 	2: 545
 	4: 1071
@@ -211,7 +228,7 @@ cputest也可以是预编译的cputest-linux等。
 
 插电源时(cpu 3.8G)
 
-	cputest
+	cputest (linux/cputest-x64)
 	1: 437
 	2: 864
 	4: 1691
@@ -224,4 +241,16 @@ cputest也可以是预编译的cputest-linux等。
 	4: 1.7s
 	6: 1.4s
 	12: 0.9s
+
+### 小米手机 K40 Gaming (联发科天玑1200)
+
+使用termux app中的linux环境测试：
+CPU为联发科天玑1200(MT6893), 8核(3Ghz A78x1, 2.6GHz A78x3, 2GHz A55x4)
+
+	cputest (linux/cputest-armv8)
+
+	1: 314
+	2: 522
+	4: 1042
+	8: 1511
 
