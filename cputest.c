@@ -9,6 +9,15 @@ typedef void *(*ThrFn) (void *);
 
 volatile int quitFlag = 0;
 
+#ifdef _WIN32
+#include <windows.h>
+
+void sleep(int s)
+{
+	Sleep(1000*s);
+}
+#endif
+
 void calc()
 {
 	int i, a=1, b=2, c;
