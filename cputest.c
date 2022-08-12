@@ -1,7 +1,6 @@
 #include <time.h>
 #include <sys/time.h>
 #include <stdio.h>
-#include <pthread.h>
 #include <unistd.h>
 
 #define MAX_THR 1000
@@ -16,6 +15,20 @@ void sleep(int s)
 {
 	Sleep(1000*s);
 }
+
+typedef HANDLE pthread_t;
+int pthread_create(pthread_t* thr, const void* restrict_attr, void* (*start_fn)(void*), void *restrict arg) {
+	DWORD tid = 0;
+	*thr = CreateThread(NULL, 0L, (LPTHREAD_START_ROUTINE)start_fn, (LPVOID)arg, 2L, &tid);
+	return 0;
+}
+
+DWORD pthread_join(pthread_t thr, void **retval) {
+	DWORD rv = WaitForSingleObject(thr, 4000);
+	return rv == WAIT_OBJECT_0;
+}
+#else
+#include <pthread.h>
 #endif
 
 void calc()

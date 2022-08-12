@@ -1,4 +1,5 @@
 CFLAGS=-std=c99
+# dont add -lpthread for win32
 LDFLAGS=-lpthread
 
 all: cputest
